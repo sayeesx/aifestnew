@@ -1,0 +1,228 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Nabla&family=Silkscreen&family=Montserrat:wght@600&display=swap');
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  z-index: 1000;
+}
+
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: radial-gradient(circle closest-side,#000 94%,#0000) right/calc(200% - 1em) 100%;
+  animation: l24 1s infinite alternate linear;
+}
+
+.loader::before {
+  content: "Loading...";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side,#fff 94%,#000);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes l24 {
+  100% {
+    background-position: left;
+  }
+}
+
+
+/* Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(120deg, #000428, #004e92); /* Sharper contrast for background */
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar Styles */
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
+  padding: 1.5rem 0;
+  z-index: 100;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7); /* Stronger shadow for better contrast */
+}
+
+/* Topbar List Styles */
+.topbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.topbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.topbar ul li a:hover {
+  background-color: #03137e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Heading Styles */
+.main-heading {
+  font-family: 'Nabla', cursive;
+  font-size: 8rem;
+  color: white;
+  text-align: center;
+  margin-top: 10rem;
+  text-shadow: 3px 3px 0px #004e92, 6px 6px 0px #000428, 9px 9px 0px rgba(0, 0, 0, 0.6);
+  letter-spacing: 2px;
+  animation: smoothOpen 2s ease-out;
+}
+
+/* Subheading Styles */
+.subheading {
+  font-family: 'Silkscreen', cursive;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  animation: typing 3s steps(30, end);
+  animation-fill-mode: forwards;
+}
+
+/* Removed Blinking Cursor */
+/* Typing Animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Register Button Container */
+.register-button-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Register Button with Moving Border Animation */
+.register-button {
+  font-family: 'Montserrat', sans-serif; /* Updated Button Font */
+  font-size: 1.2rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgb(255, 251, 0);
+  padding: 1rem 2.5rem;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button Hover effect */
+.register-button:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Increased opacity for clearer hover */
+}
+
+/* Rolling Text Animation */
+.rolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: fadeInOut 1s ease-in-out;
+}
+
+/* Text Animation Keyframes */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+/* Loading Container */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.85); /* Darkened for better contrast */
+  z-index: 1000;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer Fixed at Bottom */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000428;
+  color: white;
+  text-align: center;
+  padding: 5px 0; /* Increased padding for better spacing */
+  z-index: 100;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 3rem;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+  }
+
+  .register-button {
+    padding: 0.7rem 1.5rem;
+  }
+}

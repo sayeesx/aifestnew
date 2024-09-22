@@ -1,0 +1,85 @@
+.timeline {
+  position: fixed;
+  top: 100px; /* Adjust based on your layout */
+  left: 30px;
+  height: calc(100vh - 200px); /* Adjust based on your layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pipe {
+  position: absolute;
+  width: 20px;
+  height: 33rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.greenLine {
+  position: absolute;
+  width: 100%;
+  background-color: #4caf50;
+  top: 0;
+  left: 0;
+  transition: height 0.03s linear;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 25%; /* Distribute items evenly */
+  z-index: 2;
+}
+
+.node {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  left: 10px;
+  transform: translateX(-50%);
+  z-index: 2;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.node .nodeProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #4caf50;
+  transition: height 0.03s linear;
+}
+
+.timelineItem.active .node {
+  border-color: #4caf50;
+}
+
+.timelineItem.active .node.filled {
+  background-color: #4caf50;
+}
+
+.content {
+  margin-left: 30px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.timelineItem.active .content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.title {
+  font-size: 1.1em;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}

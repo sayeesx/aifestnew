@@ -1,0 +1,96 @@
+.contact-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    width: 150px;
+    height: 200px; /* Adjust height to accommodate logo and subheading */
+    perspective: 1000px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Blurring all cards except the one being hovered */
+  .card-grid:hover .card:not(:hover) {
+    filter: blur(5px);
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    border-radius: 15px;
+  }
+  
+  .card-front {
+    background-color: #03137e;
+  }
+  
+  .card-back {
+    background-color: #00aaff;
+    transform: rotateY(180deg);
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Subheading under the logo */
+  .subheading {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  /* Adding transition effect to the subheading and logo */
+  .card-front img,
+  .card-front .subheading {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover img,
+  .card:hover .subheading {
+    transform: scale(1.1);
+  }
+  
+  /* Responsive Grid for Smaller Devices */
+  @media (max-width: 768px) {
+    .card-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
